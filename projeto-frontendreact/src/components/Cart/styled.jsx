@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
+
 export const CartContainer = styled.div`
-    height: 105vh;
+    background-color: #D3D3D3;
+    border-radius: 7px;
+    height: 110vh;
     width: 20%;
-    border: 1px solid black;
+  
 `
 
 export const CartTitle = styled.h2`
-    margin-left: 1vw;
-    
+    margin: 2vh 0 2vh 1vw;  
 `

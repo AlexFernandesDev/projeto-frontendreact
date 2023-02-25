@@ -4,9 +4,10 @@ import { Filter } from './components/Filter/Filter'
 import { Home } from './components/Home/Home'
 import { Cart } from './components/Cart/Cart'
 import productsList from './assets/producstList'
-
-
 import styled, { createGlobalStyle } from 'styled-components'
+
+
+
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -16,14 +17,19 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 const Container = styled.div`
+  background-color: black;
   display: flex;
-  height: 100vh;
-  width: 100vw;   
+  height: 110vh;
+  width: 100vw; 
 `;
 
 
 function App() {
-
+  const [minFilter, setMinFilter]=useState(0)
+  const [maxFilter, setMaxFilter]=useState(0)
+  const [searchFilter, setSearchFilter]=useState('')
+  const [cart, setCart]=useState([])
+  const [amout, setAmount]=useState(0)
   return (
     <>
       <GlobalStyle/>
