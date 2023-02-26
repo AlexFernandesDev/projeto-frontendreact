@@ -25,23 +25,38 @@ const Container = styled.div`
 
 
 function App() {
-  const [minFilter, setMinFilter]=useState(0)
-  const [maxFilter, setMaxFilter]=useState(0)
+  const [minFilter, setMinFilter]=useState()
+  const [maxFilter, setMaxFilter]=useState()
   const [searchFilter, setSearchFilter]=useState('')
   const [cart, setCart]=useState([])
-  const [amout, setAmount]=useState(0)
+  const [amount, setAmount]=useState(0)
+
   return (
     <>
       <GlobalStyle/>
       <Header/>
       <Container>
-        <Filter/>
-        <Home products={productsList}/>
-        <Cart/>
+        <Filter 
+          minFilter={minFilter}
+          setMinFilter={setMinFilter}
+          maxFilter={maxFilter}
+          setMaxFilter={setMaxFilter}
+          searchFilter={searchFilter}
+          setSearchFilter={setSearchFilter}
+        />
+        <Home products={productsList}
+          cart={cart} 
+          setCart={setCart}
+          amount={amount}
+          setAmount={setAmount}
+        />
+        <Cart cart={cart} 
+          setCart={setCart}
+          amount={amount}
+          setAmount={setAmount}
+        />
       </Container>
     </>
-      
-   
   )
 }
 
