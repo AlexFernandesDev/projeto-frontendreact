@@ -3,9 +3,8 @@ import styled from "styled-components";
 export const Card = styled.div`
     height: 45vh;
     width: 15vw;
-    border: 1px solid black;
     margin: 0 auto;
-    margin-bottom: 2vh;
+    margin-bottom: 6vh;
 `
 
 export const ImageCard = styled.img`
@@ -13,11 +12,15 @@ export const ImageCard = styled.img`
     width: 100%;
 `
 export const TextCard = styled.p`
+    color: white;
     margin: 0.2vh 0 0.2vh 2vh;
 `
 export const AddCart = styled.button`
-    height: 4vh;
+    background-color: #A9A9A9;
+    height: 5vh;
     font-size: small;
     margin-left: 15%;
+    margin-top: 0.5vh;
     width: 70%;
+    
 `

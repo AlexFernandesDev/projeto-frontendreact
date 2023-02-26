@@ -3,9 +3,10 @@ import { CartContainer, CartTitle } from "./styled";
 import { Items } from "../Items/Items";
 
 
+
 export function Cart(){
     return(
-        <CartContainer>
+        <CartContainer >
             <CartTitle>Carrinho</CartTitle>
             <Items/>
         </CartContainer>

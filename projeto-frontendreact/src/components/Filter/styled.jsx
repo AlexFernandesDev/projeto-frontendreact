@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
 export const FilterContainer = styled.div`
-    height: 105vh;
+    background-color: #D3D3D3;
+    border-radius: 7px;
+    height: 110vh;
     width: 20%;
-    border: 1px solid black;
+
 `
 
 export const TitleFilter = styled.h2`
