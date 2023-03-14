@@ -31,6 +31,8 @@ function App() {
   const [cart, setCart]=useState([])
   const [amount, setAmount]=useState(0)
 
+  console.log(cart);
+
   return (
     <>
       <GlobalStyle/>

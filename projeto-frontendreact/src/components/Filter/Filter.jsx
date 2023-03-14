@@ -9,7 +9,7 @@ export function Filter ({ minFilter, setMinFilter, maxFilter, setMaxFilter, sear
             setMinFilter(value)
         }
     }
-    console.log(minFilter);
+    
     function handleMaxFilterChange(event){
         const value = parseInt(event.target.value);
         if(!isNaN(value) && value >= 0){
@@ -17,8 +17,8 @@ export function Filter ({ minFilter, setMinFilter, maxFilter, setMaxFilter, sear
         }
     }
 
-    function hanfleSearchFilterChange(event){
-        setSearchFilter(event.target.value)
+    function handleSearchFilter(event){
+        setSearchFilter(e.target.value);
     }
 
     return(
@@ -36,7 +36,7 @@ export function Filter ({ minFilter, setMinFilter, maxFilter, setMaxFilter, sear
             
             <StyledLabel htmlFor="busca-nome">
                 <TextLabel>Busca por nome:</TextLabel>
-                <Input id="busca-nome" type="text" />
+                <Input id="busca-nome" type="text" value={searchFilter} onChange={handleSearchFilter}/>
             </StyledLabel>    
         </FilterContainer>
     )

@@ -4,7 +4,7 @@ export const FilterContainer = styled.div`
     background-color: #D3D3D3;
     border-radius: 7px;
     height: 110vh;
-    width: 20%;
+    width: 16%;
 
 `
 
