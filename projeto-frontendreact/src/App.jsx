@@ -8,7 +8,6 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 
 
-
 const GlobalStyle = createGlobalStyle`
   *{
     margin: 0;
@@ -31,7 +30,22 @@ function App() {
   const [cart, setCart]=useState([])
   const [amount, setAmount]=useState(0)
 
-  console.log(cart);
+ function filterProducts(products){
+  return products.filter((product) => {
+    if (minFilter && product.value < minFilter) {
+      return false
+    }
+    if (maxFilter && product.value > maxFilter) {
+      return false
+    }
+    if (searchFilter && !product.name.toLowerCase().includes(searchFilter.toLowerCase())){
+      return false
+    }
+    return true
+  });
+ }
+
+ const filteredProducts = filterProducts(productsList)
 
   return (
     <>
@@ -46,7 +60,7 @@ function App() {
           searchFilter={searchFilter}
           setSearchFilter={setSearchFilter}
         />
-        <Home products={productsList}
+        <Home products={filteredProducts}
           cart={cart} 
           setCart={setCart}
           amount={amount}

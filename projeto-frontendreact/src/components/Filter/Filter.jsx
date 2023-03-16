@@ -7,18 +7,18 @@ export function Filter ({ minFilter, setMinFilter, maxFilter, setMaxFilter, sear
         const value = parseInt(event.target.value);
         if(!isNaN(value) && value >= 0){
             setMinFilter(value)
-        }
+        }   
     }
     
     function handleMaxFilterChange(event){
         const value = parseInt(event.target.value);
         if(!isNaN(value) && value >= 0){
             setMaxFilter(value)
-        }
+        }  
     }
 
     function handleSearchFilter(event){
-        setSearchFilter(e.target.value);
+        setSearchFilter(event.target.value);
     }
 
     return(
@@ -26,12 +26,12 @@ export function Filter ({ minFilter, setMinFilter, maxFilter, setMaxFilter, sear
             <TitleFilter>Filtrar Produtos</TitleFilter>
             <StyledLabel htmlFor="valor-minimo">
                 <TextLabel>Valor mínimo:</TextLabel>
-                <Input id="valor-minimo" type="number" value={minFilter} onChange={handleMinFilterChange}/>
+                <Input id="valor-minimo" type="text" value={minFilter} onChange={handleMinFilterChange}/>
             </StyledLabel>
             
             <StyledLabel htmlFor="valor-maximo">
                 <TextLabel>Valor máximo:</TextLabel>
-                <Input id="valor-maximo" type="number" value={maxFilter} onChange={handleMaxFilterChange}/>
+                <Input id="valor-maximo" type="text" value={maxFilter} onChange={handleMaxFilterChange}/>
             </StyledLabel>
             
             <StyledLabel htmlFor="busca-nome">
