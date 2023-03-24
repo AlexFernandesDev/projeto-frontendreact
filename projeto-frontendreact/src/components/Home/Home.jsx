@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { HomeContainer, HeadHome, HeadBlock, TextHeadHome, SelectOrder, CardDiv } from "./styled";
 import { Product } from "../Product/Product";
 
-export function Home({products}){
+
+export function Home({products, cart, setCart, amount, setAmount }){
 
     const [ordination, setOrdination]=useState('asc')
     const [orderedProducts, setOrderedProducts]=useState([]);
@@ -12,16 +13,24 @@ export function Home({products}){
         setOrderedProducts(sortedProducts);
     }, [ordination, products]);
 
-    function handleOrdinationChange(event){
-        setOrdination(event.target.value)
-    }
-
     function compareProducts(a, b){
         if(ordination === 'asc'){
             return a.value - b.value
         }else{
             return b.value - a.value
         }
+    }
+
+    function addToCart(product){
+        const index = cart.findIndex((item) => item.id === product.id);
+        if(index === -1){
+            setCart([...cart, { ...product, quantity: 1}])
+        }else{
+            const updateCart = [...cart];
+            updateCart[index].quantity++;
+            setCart(updateCart);
+        }
+        setAmount(amount + product.value)
     }
 
     return(
@@ -32,7 +41,7 @@ export function Home({products}){
             </HeadBlock>
             <HeadBlock>
                 <TextHeadHome>Ordenação:</TextHeadHome>           
-                <SelectOrder size={1} value={ordination} onChange={handleOrdinationChange}>
+                <SelectOrder size={1} value={ordination} onChange={(e)=>setOrdination(e.target.value)}>
                     <option value='asc'>Crescente</option>
                     <option value='desc'>Decrescente</option>
                 </SelectOrder>
@@ -40,10 +49,13 @@ export function Home({products}){
             </HeadHome>
             <CardDiv>
                 {orderedProducts.map((product) => (
-                    <Product key={product.id} product={product}/>
+                    <Product 
+                    key={product.id} 
+                    product={product}
+                    handleAddToCart={addToCart}
+                    />
                 ))}  
-            </CardDiv>
-            
+            </CardDiv>         
         </HomeContainer>
     )
 }

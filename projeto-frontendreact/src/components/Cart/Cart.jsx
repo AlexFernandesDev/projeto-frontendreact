@@ -1,14 +1,15 @@
 import React from "react";
-import { CartContainer, CartTitle } from "./styled";
+import { CartContainer, CartTitle, Div } from "./styled";
 import { Items } from "../Items/Items";
 
 
 
-export function Cart(){
+export function Cart({ cart, setCart, amount, setAmount }){
     return(
         <CartContainer >
             <CartTitle>Carrinho</CartTitle>
-            <Items/>
+            <Items cart={cart} setCart={setCart} amount={amount} setAmount={setAmount}/>
+            <Div>Total: R$ {amount.toFixed(2)}</Div>
         </CartContainer>
     )
 }

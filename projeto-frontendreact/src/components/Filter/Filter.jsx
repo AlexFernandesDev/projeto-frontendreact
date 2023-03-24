@@ -4,21 +4,25 @@ import { FilterContainer, TitleFilter, StyledLabel, TextLabel, Input} from "./st
 export function Filter ({ minFilter, setMinFilter, maxFilter, setMaxFilter, searchFilter, setSearchFilter}) {
 
     function handleMinFilterChange(event){
-        const value = parseInt(event.target.value);
-        if(!isNaN(value) && value >= 0){
+        const value = event.target.value.trim() === "" ? null : parseInt(event.target.value);
+        if(!isNaN(value) && value != null && value >= 0){
             setMinFilter(value)
+        } else {
+            setMinFilter(null)
         }
     }
-    console.log(minFilter);
+    
     function handleMaxFilterChange(event){
-        const value = parseInt(event.target.value);
-        if(!isNaN(value) && value >= 0){
+        const value = event.target.value.trim() === "" ? null : parseInt(event.target.value);
+        if(!isNaN(value) && value !== null && value >= 0){
             setMaxFilter(value)
+        }  else {
+            setMaxFilter(null)
         }
     }
 
-    function hanfleSearchFilterChange(event){
-        setSearchFilter(event.target.value)
+    function handleSearchFilter(event){
+        setSearchFilter(event.target.value);
     }
 
     return(
@@ -26,17 +30,17 @@ export function Filter ({ minFilter, setMinFilter, maxFilter, setMaxFilter, sear
             <TitleFilter>Filtrar Produtos</TitleFilter>
             <StyledLabel htmlFor="valor-minimo">
                 <TextLabel>Valor mínimo:</TextLabel>
-                <Input id="valor-minimo" type="number" value={minFilter} onChange={handleMinFilterChange}/>
+                <Input id="valor-minimo" type="text" value={minFilter} onChange={handleMinFilterChange}/>
             </StyledLabel>
             
             <StyledLabel htmlFor="valor-maximo">
                 <TextLabel>Valor máximo:</TextLabel>
-                <Input id="valor-maximo" type="number" value={maxFilter} onChange={handleMaxFilterChange}/>
+                <Input id="valor-maximo" type="text" value={maxFilter} onChange={handleMaxFilterChange}/>
             </StyledLabel>
             
             <StyledLabel htmlFor="busca-nome">
                 <TextLabel>Busca por nome:</TextLabel>
-                <Input id="busca-nome" type="text" />
+                <Input id="busca-nome" type="text" value={searchFilter} onChange={handleSearchFilter}/>
             </StyledLabel>    
         </FilterContainer>
     )
