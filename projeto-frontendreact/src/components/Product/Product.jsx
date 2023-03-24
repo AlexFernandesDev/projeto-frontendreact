@@ -8,7 +8,7 @@ export function Product({ product, handleAddToCart }){
         <Card>  
             <ImageCard src={product.imageUrl} alt={product.name} />
             <TextCard>{product.name}</TextCard>
-            <TextCard>{product.value}</TextCard>
+            <TextCard>R$ {product.value}</TextCard>
             <AddCart onClick={() => handleAddToCart(product)} >Adicionar ao Carrinho</AddCart>
         </Card>
     )

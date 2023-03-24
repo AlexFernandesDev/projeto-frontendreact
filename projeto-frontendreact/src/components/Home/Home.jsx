@@ -55,8 +55,7 @@ export function Home({products, cart, setCart, amount, setAmount }){
                     handleAddToCart={addToCart}
                     />
                 ))}  
-            </CardDiv>
-            
+            </CardDiv>         
         </HomeContainer>
     )
 }

@@ -15,30 +15,38 @@ export const Item = styled.div`
 
 export const ItemInfo = styled.div`
   display: flex;
-  
+  align-items: center;
+  flex-wrap: wrap;
+   
 `;
 
 export const ItemImage = styled.img`
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  margin-right: 10px;
+  width: 8vh;
+  height: 8vh;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+  border-radius: 3px;
 `;
 
 export const ItemName = styled.span`
-  font-size: 1rem;
-  margin-right: 0.2rem;
+  width: 15vh;
+  font-size: 0.8rem;
 
 `;
 
 export const ItemQuantity = styled.span`
+  width: 10vh;
   font-size: 1rem;
   margin-right: 0.2rem;
+  text-align: center;
+  font-size: 0.8rem;
 `;
 
 export const ItemPrice = styled.span`
   font-size: 1rem;
   margin-right: 0.2rem;
+  text-align: center;
+  font-size: 0.8rem;
 `;
 
 
@@ -46,9 +54,11 @@ export const RemoveItemButton = styled.button`
   background-color: #fff;
   border: 1px solid #ccc;
   color: #333;
-  padding: 5px 10px;
+  padding: 0.5vh 0.6vh;
   font-size: 14px;
   cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 1vh;
 
   &:hover {
     background-color: #ccc;

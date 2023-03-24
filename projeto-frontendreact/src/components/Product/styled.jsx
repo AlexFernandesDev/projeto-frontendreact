@@ -17,10 +17,11 @@ export const TextCard = styled.p`
 `
 export const AddCart = styled.button`
     background-color: #A9A9A9;
-    height: 5vh;
     font-size: small;
     margin-left: 15%;
     margin-top: 0.5vh;
-    width: 70%;
-    
+  
+   &:hover{
+        border-color: yellow;
+   }
 `

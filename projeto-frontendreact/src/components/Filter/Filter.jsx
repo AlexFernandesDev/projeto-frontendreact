@@ -4,17 +4,21 @@ import { FilterContainer, TitleFilter, StyledLabel, TextLabel, Input} from "./st
 export function Filter ({ minFilter, setMinFilter, maxFilter, setMaxFilter, searchFilter, setSearchFilter}) {
 
     function handleMinFilterChange(event){
-        const value = parseInt(event.target.value);
-        if(!isNaN(value) && value >= 0){
+        const value = event.target.value.trim() === "" ? null : parseInt(event.target.value);
+        if(!isNaN(value) && value != null && value >= 0){
             setMinFilter(value)
-        }   
+        } else {
+            setMinFilter(null)
+        }
     }
     
     function handleMaxFilterChange(event){
-        const value = parseInt(event.target.value);
-        if(!isNaN(value) && value >= 0){
+        const value = event.target.value.trim() === "" ? null : parseInt(event.target.value);
+        if(!isNaN(value) && value !== null && value >= 0){
             setMaxFilter(value)
-        }  
+        }  else {
+            setMaxFilter(null)
+        }
     }
 
     function handleSearchFilter(event){
